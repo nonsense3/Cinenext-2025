@@ -1,5 +1,5 @@
 /* ================= CONFIG ================= */
-const OMDB_KEY = '91d0da0a';
+const OMDB_KEY = 'dea27012';
 const API_ROOT = `https://www.omdbapi.com/?apikey=${OMDB_KEY}&`;
 
 /* ============= SLIDESHOW IMAGES ============= */
