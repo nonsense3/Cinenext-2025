@@ -7,7 +7,7 @@ const slideshowImages = [
   'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1920&q=80',
   'https://images.pexels.com/photos/799131/pexels-photo-799131.jpeg?auto=compress&cs=tinysrgb&w=1920',
   'http://www.impawards.com/intl/south_korea/tv/posters/squid_game_ver47.jpg',
-  'https://assets.pinterest.com/ext/embed.html?id=73253931434746166'
+  'https://i.pinimg.com/736x/0f/fa/10/0ffa1054b284e74579406e357cc610c9.jpg'
 ];
 
 function createSlidesFromArray(){
