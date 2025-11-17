@@ -4,12 +4,12 @@ const API_ROOT = `https://www.omdbapi.com/?apikey=${OMDB_KEY}&`;
 
 /* ============= SLIDESHOW IMAGES ============= */
 const slideshowImages = [
+  'https://i.vimeocdn.com/video/696682957-a405a56e2669d5d32e313b1b3244d6e3f465d19c1a66d24719fd005387330e52-d?f=webp',
   'https://images.wallpapersden.com/image/download/oppenheimer-2023-movie-poster_bmVpamqUmZqaraWkpJRmbmdlrWZlbWU.jpg',
   'https://staticg.sportskeeda.com/editor/2025/09/aac73-17588134439967-1920.jpg?w=640',
   'https://i.pinimg.com/736x/0f/fa/10/0ffa1054b284e74579406e357cc610c9.jpg',
   'https://bsmedia.business-standard.com/_media/bs/img/article/2024-05/02/full/1714640016-6552.jpg',
-  'https://img.etimg.com/thumb/width-1600,height-900,imgsize-82852,resizemode-75,msid-122804611/magazines/panache/saiyaara-shatters-records-with-rs-83-crore-in-its-opening-weekend-ahaan-panday-and-aneet-padda-make-history.jpg',
-  'https://i.vimeocdn.com/video/696682957-a405a56e2669d5d32e313b1b3244d6e3f465d19c1a66d24719fd005387330e52-d?f=webp'
+  'https://img.etimg.com/thumb/width-1600,height-900,imgsize-82852,resizemode-75,msid-122804611/magazines/panache/saiyaara-shatters-records-with-rs-83-crore-in-its-opening-weekend-ahaan-panday-and-aneet-padda-make-history.jpg'
   
 ];
 
