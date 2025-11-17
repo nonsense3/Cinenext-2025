@@ -9,6 +9,7 @@ An open source movie website for discovering and exploring a world of movies.
 A project by PIXEL BITS
 
 </div>
+
 ## 📖 About The Project
 
 **CineNext** is a sleek, modern web application designed for movie enthusiasts. It provides a clean and engaging interface to browse, search, and discover movies across a wide variety of genres. From the latest Hollywood blockbusters to beloved K-Dramas, CineNext is your personal guide to the world of cinema.
