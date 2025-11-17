@@ -44,7 +44,7 @@ function startSlideshow(){
 /* ============= OMDb rows & search ============= */
 const rows = {
   bollywood: ['Panchayat','Dangal','Jawan','Pathaan','Aavesham','Kick','Saiyaara'],
-  regional:['Pather Panchali','Meghe Dhaka Tara','Dawshom Awbotaar','Chotushkone','Baishe Srabon'],
+  regional:['Pather Panchali','The World of Apu','Dasham Avatar','Chotushkone','Vinci Da'],
   hollywood: ['Oppenheimer','Inception','Interstellar','Joker','Avengers','Dune','Matrix','Zodiac'],
   action: ['War','Baby','Extraction','Mad Max','John Wick: Chapter 4',],
   scifi: ['Avatar','The Martian','Gravity','Tenet','Edge of Tomorrow','Oblivion']
