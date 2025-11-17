@@ -188,3 +188,13 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Initialization error', err);
   }
 });
+/* ============ PRELOADER ============ */
+window.addEventListener('load', () => {
+  const MINIMUM_DELAY = 5000; 
+  setTimeout(() => {
+    const preloader = document.querySelector('.preloader');
+    if (preloader) {
+      preloader.classList.add('hidden');
+    }
+  }, MINIMUM_DELAY);
+});
