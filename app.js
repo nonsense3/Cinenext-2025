@@ -4,10 +4,12 @@ const API_ROOT = `https://www.omdbapi.com/?apikey=${OMDB_KEY}&`;
 
 /* ============= SLIDESHOW IMAGES ============= */
 const slideshowImages = [
-  'https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1920&q=80',
-  'https://images.pexels.com/photos/799131/pexels-photo-799131.jpeg?auto=compress&cs=tinysrgb&w=1920',
-  'http://www.impawards.com/intl/south_korea/tv/posters/squid_game_ver47.jpg',
-  'https://i.pinimg.com/736x/0f/fa/10/0ffa1054b284e74579406e357cc610c9.jpg'
+  'https://images.wallpapersden.com/image/download/oppenheimer-2023-movie-poster_bmVpamqUmZqaraWkpJRmbmdlrWZlbWU.jpg',
+  'https://staticg.sportskeeda.com/editor/2025/09/aac73-17588134439967-1920.jpg?w=640',
+  'https://i.pinimg.com/736x/0f/fa/10/0ffa1054b284e74579406e357cc610c9.jpg',
+  'https://bsmedia.business-standard.com/_media/bs/img/article/2024-05/02/full/1714640016-6552.jpg',
+  'https://img.etimg.com/thumb/width-1600,height-900,imgsize-82852,resizemode-75,msid-122804611/magazines/panache/saiyaara-shatters-records-with-rs-83-crore-in-its-opening-weekend-ahaan-panday-and-aneet-padda-make-history.jpg'
+  
 ];
 
 function createSlidesFromArray(){
@@ -42,8 +44,8 @@ function startSlideshow(){
 /* ============= OMDb rows & search ============= */
 const rows = {
   bollywood: ['Panchayat','Dangal','Jawan','Pathaan','KGF','Kick','Saiyaara'],
-  hollywood: ['Inception','Interstellar','Joker','Avengers','Dune','Matrix'],
-  action: ['War','Baby','Extraction','Mad Max','John Wick','Singham'],
+  hollywood: ['Oppenheimer','Inception','Interstellar','Joker','Avengers','Dune','Matrix'],
+  action: ['War','Baby','Extraction','Mad Max','John Wick 4',],
   scifi: ['Avatar','The Martian','Gravity','Tenet','Edge of Tomorrow','Oblivion']
 };
 
