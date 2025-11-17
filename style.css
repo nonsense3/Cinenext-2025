@@ -286,10 +286,24 @@ header{
 	transform:translateY(-6px) scale(1.03);
 	box-shadow:0 18px 40px rgba(0,0,0,0.6)
 }
-.scroll-row{
-	overflow-x:auto;
-	padding-bottom:8px;
-	-webkit-overflow-scrolling:touch
+.scroll-row {
+  overflow-x: auto;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.12) transparent; /* thumb, track */
+}
+
+.scroll-row::-webkit-scrollbar {
+  height: 8px;               /* thickness */
+}
+.scroll-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-row::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+  border-radius: 6px;
+  border: 2px solid transparent;
 }
 .results-grid{
 	display:grid;
