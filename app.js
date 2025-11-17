@@ -42,7 +42,7 @@ const rows = {
   bollywood: ['Panchayat','Dangal','Jawan','Pathaan','Special 26','Aavesham','Kick','Saiyaara'],
   regional:['Pather Panchali','The World of Apu','Dasham Avatar','Chotushkone','Vinci Da','Rahasya','Feluda Pherot'],
   hollywood: ['Oppenheimer','Inception','Interstellar','Hereditary','The Conjuring: Last Rites','Joker','Avengers','Dune','Matrix','Zodiac'],
-  action: ['War','Baby','Extraction','Mad Max','John Wick: Chapter 4',],
+  action: ['War','Baby','Extraction','Mad Max','John Wick: Chapter 4','Alice in Borderland'],
   scifi: ['Avatar','The Martian','Gravity','Tenet','Edge of Tomorrow','Oblivion'],
   drama: ['Squid Game','Alice in Borderland','All of Us Are Dead','When the Stars Gossip','Queen of Tears','Business Proposal','Chimera']
 };
