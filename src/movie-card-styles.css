@@ -1,0 +1,67 @@
+/* ===== Movie Card Styling - Framed Design with Text Inside ===== */
+.movie-card-wrapper {
+    box-sizing: border-box !important;
+    position: relative !important;
+    width: 130px !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.3s ease !important;
+    margin: 0 !important;
+
+    /* The Frame */
+    background: #1a1a1a !important;
+    border: 3px solid #333 !important;
+    border-radius: 16px !important;
+    padding: 5px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+    overflow: hidden !important;
+}
+/* Link container - reset styles */
+.movie-card-wrapper a {
+    display: block !important;
+    width: 100% !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+/* Poster image */
+.movie-card-wrapper img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 10px !important;
+    object-fit: cover !important;
+    aspect-ratio: 2/3 !important;
+}
+/* Hover effect - Lift and Lighten Frame */
+.movie-card-wrapper:hover {
+    transform: translateY(-8px) !important;
+    border-color: #555 !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7) !important;
+    background: #222 !important;
+}
+.movie-card-wrapper:hover a {
+    box-shadow: none !important;
+    border: none !important;
+}
+/* Title INSIDE card at bottom */
+.movie-card-wrapper p {
+    position: absolute !important;
+    bottom: 0 !important;
+    /* Align to bottom of content area */
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    padding: 25px 4px 8px !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+    /* Gradient overlay */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 10%, rgba(0, 0, 0, 0.6) 60%, transparent 100%) !important;
+    border-radius: 0 0 10px 10px !important;
+    pointer-events: none !important;
+}

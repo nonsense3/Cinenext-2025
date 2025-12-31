@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | CineNext</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="src/404.css">
+</head>
+
+<body>
+    <div class="error-container">
+        <!-- Animated background particles -->
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- Film strip decoration -->
+        <div class="film-strip film-strip-left"></div>
+        <div class="film-strip film-strip-right"></div>
+
+        <!-- Main content -->
+        <div class="error-content">
+            <!-- Glitchy 404 -->
+            <div class="error-code">
+                <span class="glitch-layer">404</span>
+                <span class="glitch-layer">404</span>
+                <span class="glitch-layer">404</span>
+            </div>
+
+            <!-- Movie clapperboard icon -->
+            <div class="clapperboard">
+                <div class="clapper-top">
+                    <div class="clapper-stripe"></div>
+                    <div class="clapper-stripe"></div>
+                    <div class="clapper-stripe"></div>
+                    <div class="clapper-stripe"></div>
+                </div>
+                <div class="clapper-bottom">
+                    <div class="clapper-text">SCENE NOT FOUND</div>
+                </div>
+            </div>
+
+            <h1 class="error-title">Oops! This Scene Was Cut</h1>
+            <p class="error-message">
+                The page you're looking for seems to have ended up on the cutting room floor.
+                <br>
+                <span class="error-submessage">Maybe it was never filmed, or perhaps it's in a different
+                    timeline...</span>
+            </p>
+
+            <!-- Action buttons -->
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Back to Home
+                </a>
+                <button class="btn btn-secondary" onclick="history.back()">
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Go Back
+                </button>
+            </div>
+
+            <!-- Fun movie quote -->
+            <div class="movie-quote">
+                <svg class="quote-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+                </svg>
+                <p class="quote-text">"Houston, we have a problem."</p>
+                <p class="quote-source">- Apollo 13 (1995)</p>
+            </div>
+        </div>
+
+        <!-- Floating film reels -->
+        <div class="film-reel film-reel-1">
+            <div class="reel-circle">
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+            </div>
+        </div>
+        <div class="film-reel film-reel-2">
+            <div class="reel-circle">
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+                <div class="reel-hole"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add subtle parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+
+            document.querySelectorAll('.film-reel').forEach((reel, index) => {
+                const speed = (index + 1) * 0.5;
+                reel.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
+            });
+        });
+
+        // Animate clapperboard on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.clapper-top').style.transform = 'rotateX(-25deg)';
+                setTimeout(() => {
+                    document.querySelector('.clapper-top').style.transform = 'rotateX(0deg)';
+                }, 300);
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

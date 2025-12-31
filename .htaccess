@@ -1,0 +1,24 @@
+# Directory Index
+DirectoryIndex index.php index.html
+
+# URL Rewriting
+RewriteEngine On
+
+# Rewrite empty request to index.php
+RewriteRule ^$ index.php [L]
+
+# Exclude error pages, CSS, and API endpoints from rewriting
+RewriteCond %{REQUEST_URI} !^/404\.html$
+RewriteCond %{REQUEST_URI} !^/504\.html$
+RewriteCond %{REQUEST_URI} !^/404\.css$
+RewriteCond %{REQUEST_URI} !^/504\.css$
+RewriteCond %{REQUEST_URI} !^/recommend\.php$
+
+# Rewrite all other non-existent files/directories to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]
+
+# Custom Error Pages (must be at the end)
+ErrorDocument 404 /404.html
+ErrorDocument 504 /504.html

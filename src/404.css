@@ -1,0 +1,662 @@
+:root {
+    --bg: #07060a;
+    --accent: #7b3fe4;
+    --gold: #d6b24b;
+    --muted: #9a8fb5;
+    --neon: rgba(123, 63, 228, 0.28);
+    --neon-strong: rgba(123, 63, 228, 0.85);
+}
+
+/* ===== Base Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Main Container ===== */
+.error-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, rgba(123, 63, 228, 0.08) 0%, var(--bg) 70%);
+}
+
+/* ===== Error Content ===== */
+.error-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 700px;
+}
+
+/* ===== Animated Particles ===== */
+.particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    opacity: 0;
+    animation: particleFloat 8s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 7s;
+}
+
+.particle:nth-child(2) {
+    left: 25%;
+    animation-delay: 1.5s;
+    animation-duration: 9s;
+}
+
+.particle:nth-child(3) {
+    left: 40%;
+    animation-delay: 3s;
+    animation-duration: 6s;
+}
+
+.particle:nth-child(4) {
+    left: 60%;
+    animation-delay: 2s;
+    animation-duration: 8s;
+}
+
+.particle:nth-child(5) {
+    left: 75%;
+    animation-delay: 4s;
+    animation-duration: 7.5s;
+}
+
+.particle:nth-child(6) {
+    left: 85%;
+    animation-delay: 0.5s;
+    animation-duration: 8.5s;
+}
+
+.particle:nth-child(7) {
+    left: 50%;
+    animation-delay: 2.5s;
+    animation-duration: 9.5s;
+}
+
+.particle:nth-child(8) {
+    left: 90%;
+    animation-delay: 3.5s;
+    animation-duration: 6.5s;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* ===== Film Strip Decoration ===== */
+.film-strip {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, transparent 8%, rgba(255, 255, 255, 0.02) 8%, rgba(255, 255, 255, 0.02) 12%, transparent 12%);
+    background-size: 100% 40px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.film-strip::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent) 0%, var(--accent) 45%, transparent 45%, transparent 55%, var(--accent) 55%);
+    background-size: 100% 40px;
+    opacity: 0.15;
+}
+
+.film-strip-left {
+    left: 20px;
+    animation: filmScroll 20s linear infinite;
+}
+
+.film-strip-right {
+    right: 20px;
+    animation: filmScroll 20s linear infinite reverse;
+}
+
+@keyframes filmScroll {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 400px;
+    }
+}
+
+/* ===== Glitchy 404 Code ===== */
+.error-code {
+    position: relative;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(6rem, 15vw, 12rem);
+    line-height: 1;
+    margin-bottom: 30px;
+    color: transparent;
+    filter: drop-shadow(0 0 30px var(--neon));
+}
+
+.glitch-layer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glitch-layer:nth-child(1) {
+    animation: glitch1 2s infinite;
+    opacity: 0.8;
+}
+
+.glitch-layer:nth-child(2) {
+    animation: glitch2 2.5s infinite;
+    opacity: 0.6;
+}
+
+.glitch-layer:nth-child(3) {
+    position: relative;
+    animation: none;
+    opacity: 1;
+}
+
+@keyframes glitch1 {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%);
+    }
+
+    20% {
+        transform: translate(calc(-50% - 3px), calc(-50% + 2px));
+    }
+
+    40% {
+        transform: translate(calc(-50% + 2px), calc(-50% - 1px));
+    }
+
+    60% {
+        transform: translate(calc(-50% - 1px), calc(-50% + 3px));
+    }
+
+    80% {
+        transform: translate(calc(-50% + 3px), calc(-50% - 2px));
+    }
+}
+
+@keyframes glitch2 {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%);
+    }
+
+    25% {
+        transform: translate(calc(-50% + 2px), calc(-50% - 3px));
+    }
+
+    50% {
+        transform: translate(calc(-50% - 2px), calc(-50% + 2px));
+    }
+
+    75% {
+        transform: translate(calc(-50% + 3px), calc(-50% + 1px));
+    }
+}
+
+/* ===== Clapperboard ===== */
+.clapperboard {
+    display: inline-block;
+    margin: 0 auto 30px;
+    perspective: 1000px;
+}
+
+.clapper-top {
+    width: 200px;
+    height: 40px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    transform-origin: bottom;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.clapper-stripe {
+    flex: 1;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--gold) 100%);
+    border-radius: 4px;
+    animation: stripeGlow 2s ease-in-out infinite;
+}
+
+.clapper-stripe:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.clapper-stripe:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.clapper-stripe:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.clapper-stripe:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes stripeGlow {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        box-shadow: 0 0 5px var(--neon);
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px var(--neon-strong);
+    }
+}
+
+.clapper-bottom {
+    width: 200px;
+    height: 50px;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.clapper-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--neon);
+}
+
+/* ===== Text Content ===== */
+.error-title {
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #fff, var(--muted));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+
+    0%,
+    100% {
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.error-message {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.error-submessage {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-style: italic;
+}
+
+/* ===== Action Buttons ===== */
+.error-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.btn:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent), #9b5ff8);
+    color: #fff;
+    box-shadow: 0 8px 24px var(--neon);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px var(--neon-strong);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.btn-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===== Movie Quote ===== */
+.movie-quote {
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.quote-icon {
+    color: var(--accent);
+    opacity: 0.3;
+    margin-bottom: 10px;
+}
+
+.quote-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.quote-source {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+/* ===== Film Reels ===== */
+.film-reel {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.15;
+    transition: transform 0.3s ease-out;
+    animation: reelRotate 20s linear infinite;
+}
+
+.film-reel-1 {
+    top: 10%;
+    left: 8%;
+    width: 120px;
+    height: 120px;
+}
+
+.film-reel-2 {
+    bottom: 15%;
+    right: 10%;
+    width: 150px;
+    height: 150px;
+    animation-direction: reverse;
+}
+
+.reel-circle {
+    width: 100%;
+    height: 100%;
+    border: 8px solid var(--accent);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 30px var(--neon);
+}
+
+.reel-circle::before {
+    content: '';
+    position: absolute;
+    inset: 20%;
+    border: 4px solid var(--gold);
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px var(--neon);
+}
+
+.reel-hole {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--bg);
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+}
+
+.reel-hole:nth-child(1) {
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.reel-hole:nth-child(2) {
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.reel-hole:nth-child(3) {
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+}
+
+.reel-hole:nth-child(4) {
+    top: 50%;
+    right: 15%;
+    transform: translateY(-50%);
+}
+
+@keyframes reelRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .error-content {
+        padding: 20px 15px;
+    }
+
+    .error-code {
+        font-size: clamp(4rem, 20vw, 8rem);
+    }
+
+    .error-title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .error-message {
+        font-size: 1rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .film-strip {
+        width: 40px;
+    }
+
+    .film-strip-left {
+        left: 5px;
+    }
+
+    .film-strip-right {
+        right: 5px;
+    }
+
+    .film-reel-1,
+    .film-reel-2 {
+        opacity: 0.08;
+    }
+
+    .film-reel-1 {
+        width: 80px;
+        height: 80px;
+    }
+
+    .film-reel-2 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .clapperboard {
+        transform: scale(0.9);
+    }
+
+    .movie-quote {
+        margin-top: 30px;
+        padding: 15px;
+    }
+
+    .quote-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-code {
+        font-size: clamp(3rem, 18vw, 6rem);
+        margin-bottom: 20px;
+    }
+
+    .clapperboard {
+        transform: scale(0.8);
+    }
+
+    .clapper-top {
+        width: 160px;
+        height: 32px;
+    }
+
+    .clapper-bottom {
+        width: 160px;
+        height: 40px;
+    }
+
+    .clapper-text {
+        font-size: 0.65rem;
+    }
+}

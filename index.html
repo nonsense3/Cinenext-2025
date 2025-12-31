@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cine Next — Your Movie Hub</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="stylesheet" href="src/watch-button.css" />
+  <link rel="stylesheet" href="src/movie-card-styles.css" />
+  <link rel="stylesheet" href="src/chat-layout.css" />
+  <link rel="stylesheet" href="src/chat-connect.css" />
+  <!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/src/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/src/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/src/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/src/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/src/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/src/android-chrome-512x512.png">
+<link rel="manifest" href="/src/site.webmanifest">
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@600;800;900&display=swap"
+    rel="stylesheet" />
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader" class="preloader" role="status" aria-live="polite" aria-label="Loading">
+    <div class="preloader-content">
+      <h1 class="preloader-title">Cine Next</h1>
+      <p class="preloader-tagline">When tech meets Cinema</p>
+      <div class="loading-line-container" aria-hidden="true">
+        <div class="loading-line"></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="header-logo-section">
+        <div id="logo" class="logo" onclick="location.reload()" aria-label="Cine Next home">CINE NEXT</div>
+      </div>
+      <div class="header-search-section">
+        <div class="search-wrap" role="search" aria-label="Site-wide movie search">
+          <input type="text" id="searchBox" class="search-input" placeholder="Search movies..."
+            aria-label="Search movies" autocomplete="off" />
+          <button id="searchBtn" class="btn btn-primary" type="button" aria-label="Search">Search</button>
+        </div>
+        <div id="auth-area" aria-label="Authentication and user profile area"></div>
+      </div>
+    </header>
+    <!-- Hero -->
+    <section id="heroArea" class="hero" aria-label="Hero">
+      <div id="heroSlidesContainer" class="hero-slides" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <h1 id="heroTitle" class="hero-title">CINE NEXT</h1>
+        <p id="heroSubtitle" class="hero-sub">Movies. Stories. Worlds beyond imagination.</p>
+      </div>
+    </section>
+    <main>
+      <!-- AI Recommender Section -->
+      <section id="ai-recommender-section" style="margin-bottom: 40px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;">
+          <!-- Recommender Controls -->
+          <div style="flex:1;max-width:800px">
+            <h2 class="section-title">✨AI Movie Recommender</h2>
+            <div class="reco-controls">
+              <input type="text" id="reco-title" placeholder="Enter a movie you love (e.g. Inception)..."
+                aria-label="Movie Title"
+                style="flex: 1; min-width: 200px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 14px; border-radius: 10px; color: #fff; font-size: 0.95rem;" />
+              <input type="number" id="reco-year" placeholder="Year (opt)" min="1900" max="2030"
+                aria-label="Release Year" style="width: 100px;" />
+              <button id="reco-fetch" class="btn btn-primary">Get recommendations</button>
+            </div>
+
+            <div id="ai-recommendations" class="reco-grid" aria-live="polite">
+              <!-- JS populates this -->
+            </div>
+          </div>
+          <!-- Community Chat -->
+          <aside style="width:360px;min-width:280px;flex-shrink:0;" aria-label="Community Chat">
+            <h3 class="section-title" style="font-size:1.3rem">Community Chat</h3>
+            <div id="chat-container" class="chat-container"
+              style="background:rgba(255,255,255,0.03);border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.06)">
+              <!-- Mobile Close Button -->
+              <button id="chat-mobile-close" class="chat-mobile-close" aria-label="Close Chat">✕</button>
+              <div id="chat-feed" class="chat-feed"></div>
+              <div class="chat-input-area" style="margin-top:10px">
+                <div style="position:relative;display:flex;gap:8px">
+                  <textarea id="chat-input" placeholder="Write a message..."
+                    style="flex: 1; background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); padding: 6px 10px; font-size: 13px; border-radius: 8px; color: #fff;"></textarea>
+                  <button id="emoji-btn" type="button"
+                    style="background:none;border:none;font-size:1.2rem;cursor:pointer;padding:0 4px">😊</button>
+                  <div id="emoji-picker" class="emoji-picker hidden"></div>
+                </div>
+                <div style="display:flex;justify-content:flex-end;align-items:center;margin-top:8px">
+                  <button id="chat-send" class="btn btn-primary" style="padding:6px 16px;font-size:0.9rem"
+                    palign="right">Send</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <!-- Mobile Chat Trigger Button -->
+      <button id="mobile-chat-trigger" class="mobile-chat-trigger">
+        Chat with Community 💬
+      </button>
+      <!-- Search Results -->
+      <section id="resultsSection" class="hidden" aria-live="polite">
+        <h2 class="section-title">Search Results</h2>
+        <div id="resultsGrid" class="results-grid"></div>
+      </section>
+      <!-- Movie Rows -->
+        <h2 class="section-title">Recommended For You</h2><br>
+      <div id="row-bollywood-wrap">
+        <h2 class="section-title">Bollywood</h2>
+        <div id="row-bollywood" class="strip scroll-row"></div>
+      </div>
+      <div id="row-regional-wrap">
+        <h2 class="section-title">Regional</h2>
+        <div id="row-regional" class="strip scroll-row"></div>
+      </div>
+      <div id="row-hollywood-wrap">
+        <h2 class="section-title">Hollywood Blockbusters</h2>
+        <div id="row-hollywood" class="strip scroll-row"></div>
+      </div>
+      <div id="row-action-wrap">
+        <h2 class="section-title">Action & Thrillers</h2>
+        <div id="row-action" class="strip scroll-row"></div>
+      </div>
+      <div id="row-scifi-wrap">
+        <h2 class="section-title">Sci-Fi & Fantasy</h2>
+        <div id="row-scifi" class="strip scroll-row"></div>
+      </div>
+      <div id="row-drama-wrap">
+        <h2 class="section-title">K-Drama</h2>
+        <div id="row-drama" class="strip scroll-row"></div>
+      </div>
+    </main>
+    <footer
+      style="text-align: center; padding: 40px 20px; margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+      <h3 class="footer-neon" style="margin: 0 0 12px; font-size: 1.5rem; letter-spacing: 1px">PIXEL BITS</h3>
+      <p style="color: var(--gold); font-weight: 700; margin-bottom: 8px">Members:</p>
+      <ul style="list-style: none; padding: 0; margin: 0; color: #ccc; line-height: 1.6">
+        <li>Suparno Das</li>
+        <li>Supradip Paul</li>
+        <li>Ankit Dey</li>
+        <li>Alekhya Mondal</li>
+        <li>Raj Kumar Das</li>
+      </ul>
+      <p style="margin-top: 24px; color: #666; font-size: 0.85rem">© CineNext — Build by PIXEL BITS</p>
+    </footer>
+  </div>
+  <script src="src/app.js"></script>
+</body>
+</html>

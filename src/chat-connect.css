@@ -1,0 +1,50 @@
+/* Chat Connect Feature - Add to end of style.css */
+/* Chat Connect Overlay - Mobile Only */
+.chat-connect-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    border-radius: 12px;
+}
+.connect-content {
+    text-align: center;
+    padding: 30px;
+    color: #fff;
+}
+.btn-connect {
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(123, 63, 228, 0.5);
+    transition: all 0.3s ease;
+}
+.btn-connect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(123, 63, 228, 0.7);
+}
+.btn-connect:active {
+    transform: translateY(0);
+}
+/* Show overlay and blur only on mobile when disconnected */
+@media (max-width: 767px) {
+    aside[aria-label="Community Chat"].chat-disconnected .chat-connect-overlay {
+        display: flex;
+    }
+    aside[aria-label="Community Chat"].chat-disconnected .chat-container {
+        filter: blur(8px);
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,39 @@
+/* ===== Movie Recommendation Grid (Smaller Cards) ===== */
+.reco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+}
+/* ===== AI Recommender + Community Chat Side-by-Side Layout ===== */
+#ai-recommender-section>div {
+    display: flex !important;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+/* AI Recommender (left side) */
+#ai-recommender-section>div>div:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+/* Community Chat (right side) - fixed width, sticky */
+#ai-recommender-section aside {
+    flex: 0 0 360px;
+    width: 360px;
+    position: sticky;
+    top: 20px;
+    align-self: flex-start;
+}
+/* Responsive: stack on smaller screens */
+@media (max-width: 1024px) {
+    #ai-recommender-section>div {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    #ai-recommender-section aside {
+        position: static;
+        width: 100%;
+        flex: 1 1 100%;
+    }
+}
