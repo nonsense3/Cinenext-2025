@@ -111,6 +111,7 @@ This project was brought to life by:
 
 * **Suparno Das**
 * **Supradip Paul**
+* **Archita Howly**
 * **Ankit Dey**
 * **Alekhya Mondal**
 * **Raj Kumar Das**
